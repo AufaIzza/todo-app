@@ -1,6 +1,10 @@
 // selects the main container
 const mainContainer = document.getElementById("main-container")
 
+// selects the input 
+const todoButton = document.getElementById("todo-button")
+const todoInput = document.getElementById("todo-input")
+
 // tailwind class styling
 const itemContainerClass = "flex gap-4 items-center"
 const itemRemoveButtonClass = "mt-4 bg-red-400 size-10 item-remove shadow shadow-black px-2 rounded-lg hover:bg-red-200"
@@ -34,6 +38,7 @@ function showItem(string) {
 
     // inserts element id into the elements
     itemContainer.id = string
+    itemRemoveButton.id = string
 
     // putting paragraph into the paragraph container
     itemParaContainer.appendChild(itemPara)
@@ -45,6 +50,16 @@ function showItem(string) {
 
     // puts the item container element into the main class
     mainContainer.appendChild(itemContainer)
+
+    // creates a query selector for all elements with the class item-remove
+    let removeButton = document.querySelectorAll(".item-remove")
+
+    // implements the remove feature for removeButton
+    removeButton.forEach((element) => {
+        element.addEventListener('click', () => {
+            removeItem(element.id)
+        })
+    })
 }
 
 // removes an item with the given id
@@ -55,4 +70,18 @@ function removeItem(id) {
     // removes the element by id from existing
     selected.parentNode.removeChild(selected)
 }
+
+
+// implements the add feature
+todoButton.addEventListener('click', () => {
+    // checks if the value is empty white space and if it is then just return
+    if (todoInput.value.trim() == "") {
+        return
+    }
+    showItem(todoInput.value)
+
+    // clears the value in the submit box
+    todoInput.value = ""  
+})
+
 
