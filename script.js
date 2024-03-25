@@ -84,4 +84,11 @@ todoButton.addEventListener('click', () => {
     todoInput.value = ""  
 })
 
-
+// implements adding by just pressing the enter key feature
+todoInput.addEventListener("keypress", (event) => {
+    // checks if the enter key is pressed and calls the todoButton if so
+    if (event.key === "Enter") {
+      event.preventDefault();
+      todoButton.click();
+    }
+  });
