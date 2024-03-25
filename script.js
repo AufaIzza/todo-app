@@ -6,7 +6,7 @@ const todoButton = document.getElementById("todo-button")
 const todoInput = document.getElementById("todo-input")
 
 // tailwind class styling
-const itemContainerClass = "flex gap-4 items-center"
+const itemContainerClass = "flex gap-4 items-center item-container"
 const itemRemoveButtonClass = "mt-4 bg-red-400 size-10 item-remove shadow shadow-black px-2 rounded-lg hover:bg-red-200"
 const itemCheckBoxClass = "item-checkbox size-10 mt-4 shadow shadow-slate-100 rounded-full"
 const itemParaContainerClass = "justify-evenly py-6 px-4 bg-slate-100 w-96 h-14 items-center flex mt-5 rounded-lg hover:bg-slate-300 shadow shadow-slate-100 "
